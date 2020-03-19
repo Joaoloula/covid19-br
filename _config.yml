@@ -42,3 +42,5 @@ google_analytics: "UA-72403608-5"
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+theme: jekyll-theme-cayman
