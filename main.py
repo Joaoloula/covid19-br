@@ -127,23 +127,11 @@ if __name__ == "__main__":
         {
             "state": row["Nome"].strip("*"),
             "positive": row["Casos confirmados"],
-            "deaths": row["Óbitos"],
+            "death": row["Óbitos"],
             "date": "20200319",
         }
         for _, row in dataframe.iterrows()
     ]
-
-    # other_br_url = "http://plataforma.saude.gov.br/d2153763-8e7e-4003-ad0f-b414d4637230"
-    # br_url = "http://plataforma.saude.gov.br/novocoronavirus/#COVID-19-brazil"
-
-    # br_req = requests.get(br_url)
-    # soup = BeautifulSoup(br_req.content, "html5lib")
-    import ipdb
-
-    ipdb.set_trace()
-    # req = requests.get(url, headers=headers)
-    # output = req.content
-    # data = json.loads(output.decode("utf-8"))
 
     states = list(set([d["state"] for d in data]))
 
