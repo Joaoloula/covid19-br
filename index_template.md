@@ -69,10 +69,10 @@ layout: default
             }
             stats = _stats
         }
-        console.log("R0=", R0, "CFR=", CFR)
+        console.log("Número de Reprodução=", R0, "Taxa de Fatalidade=", CFR)
         var data = [
             {
-                name: 'Estimated cases',
+                name: 'Casos estimados',
                 x: Array(stats.length).fill(1).map((v, j) => j+1),
                 y: Array(stats.length).fill(1).map((v, j) => stats[j][1]['median']),
                 marker: {
@@ -83,14 +83,14 @@ layout: default
                 mode: 'markers',
             },
             {
-                name: 'Confirmed cases',
+                name: 'Casos confirmados',
                 x: Array(stats.length).fill(1).map((v, j) => j+1),
                 y: Array(stats.length).fill(1).map((v, j) => stats[j][1]['positive']),
                 type: 'scatter',
                 mode: 'markers',
             },
             {
-                name: 'Deaths',
+                name: 'Mortes',
                 x: Array(stats.length).fill(1).map((v, j) => j+1),
                 y: Array(stats.length).fill(1).map((v, j) => stats[j][1]['deaths']),
                 type: 'scatter',
@@ -110,7 +110,7 @@ layout: default
         }
         layout = {
             hovermode: 'closest',
-            title: 'Infections by state <i>({{ date }})</i>',
+            title: 'Infecções por região <i>({{ date }})</i>',
             xaxis: {
                 tickvals: Array(stats.length).fill(1).map((v, j) => j+1),
                 ticktext: Array(stats.length).fill(1).map((v, j) => stats[j][0]),
