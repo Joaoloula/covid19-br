@@ -42,7 +42,6 @@ layout: default
     document.getElementById("onlydeaths").addEventListener('change', (event) => {refresh()})
 
     var allstats = {{ stats }};
-    col = 'blue';
     function refresh(){
         if(document.getElementById("R0").disabled) {
             R0="None"
@@ -75,10 +74,6 @@ layout: default
                 name: 'Casos estimados',
                 x: Array(stats.length).fill(1).map((v, j) => j+1),
                 y: Array(stats.length).fill(1).map((v, j) => stats[j][1]['median']),
-                marker: {
-                    color: col,
-                    opacity: 0
-                },
                 type: 'scatter',
                 mode: 'markers',
             },
@@ -146,11 +141,11 @@ layout: default
 
 </script>
 
-Uma das maiores dificuldades na luta contra o coronavírus é a falta de dados confiáveis. A incidência do vírus é difícil de estimar: no Brasil, por exemplo, faltam testes, e o governo anunciou que testará somente os casos graves—ao contrário das diretrizes da OMS—o que faz com que o número de casos confirmados seja uma considerável subestimacão do número real. Como então podemos estimar o número de pessoas infectadas?
+Uma das maiores dificuldades na luta contra o coronavírus é a falta de dados confiáveis. A incidência do vírus é difícil de estimar: no Brasil, por exemplo, faltam testes, e o governo anunciou que testará somente os casos graves—ao contrário das diretrizes da OMS—o que faz com que o número de casos confirmados seja uma considerável subestimação do número real. Como podemos então estimar o número de pessoas infectadas?
 
-O paper [_Inferring the number of COVID-19 cases from recently reported deaths_](https://www.medrxiv.org/content/10.1101/2020.03.10.20033761v1.full.pdf) [1], de Jombart e colegas, é um tratamento tão detalhado dessa pergunta quanto você pode querer ler (de fato, talvez seja um tratamento mais detalhado do que você queira ler.) A ideia é que o dado mais confiável que temos é o número de mortes: se aliarmos a ele as nossas melhores estimativas de algumas constantes epidemiológicas, podemos reconstruir os passos do vírus e chegar a uma boa aproximacão do número de infectados no momento atual.
+O paper [_Inferring the number of COVID-19 cases from recently reported deaths_](https://www.medrxiv.org/content/10.1101/2020.03.10.20033761v1.full.pdf) [1], de Jombart e colegas, é um tratamento tão detalhado dessa pergunta quanto você pode querer ler (de fato, talvez seja um tratamento mais detalhado do que você queira ler.) A ideia é que o dado mais confiável que temos é o número de mortes: se aliarmos a ele as nossas melhores estimativas de algumas constantes epidemiológicas, podemos reconstruir os passos do vírus e chegar a uma boa aproximação do número de infectados agora.
 
-Para a simulacão acima, usamos o modelo já mencionado de [1], com o método de simulacão descrito em [6], dados do ministério da saúde [7], a estimativa do período de incubacão dada em [2], do intervalo serial dada em [3], e intervalos para a taxa de fatalidade e o número de reproducão baseados nos valores de [4, 5].
+Para criar o gráfico acima, usamos o modelo já mencionado de [1], com o método de simulação descrito em [6], dados do ministério da saúde [7], a estimativa do período de incubação dada em [2], do intervalo serial dada em [3], e intervalos para a taxa de fatalidade e o número de reprodução baseados nos valores de [4, 5].
 
 Citacões:
 
